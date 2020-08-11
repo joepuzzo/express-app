@@ -12,7 +12,9 @@ const setupGlobals = () => {
  */
 const setupLogger = () => {
   const { format } = winston;
-  const { combine, timestamp, json, simple } = format;
+  const { combine, timestamp, json, simple, metadata } = format;
+
+  const myFormat = format.metadata({ fillExcept: ['message', 'level', 'timestamp'] })
 
   // Winston transports
   const transports = [
